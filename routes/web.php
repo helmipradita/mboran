@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ListController;
+use App\Http\Controllers\WebController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\TempatController;
 
@@ -25,7 +25,7 @@ Route::get('/sejarah', function () {
     return view('sejarah');
 });
 
-Route::get('/list', [ListController::class, 'index'])->name('list');
+Route::get('/list', [WebController::class, 'index'])->name('list');
 
 Auth::routes();
 

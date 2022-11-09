@@ -32,20 +32,39 @@
             id: 'mapbox/dark-v10'
         });
 
+        @foreach ($kecamatan as $data)
+            var data{{ $data->id_kecamatan }} = L.layerGroup(); 
+        @endforeach
+        
         var map = L.map('map', {
-            center: [-7.120227178700657, 112.41816560420529],
+            center: [-7.470978040905679, 112.44103322529277],
             zoom: 14,
-            layers: [peta1]
+            layers: [peta1, 
+            @foreach ($kecamatan as $data)
+                data{{ $data->id_kecamatan }},
+            @endforeach
+        ]
         });
-
         var baseMaps = {
-            "Grayscale": peta1,
+            "Graysalce": peta1,
             "Satelite": peta2,
-            "Streets": peta2,
+            "Street": peta3,
             "Dark": peta4,
-            
         };
-
-        L.control.layers(baseMaps).addTo(map);
+        var overLayer = {
+            @foreach ($kecamatan as $data)
+                "{{ $data->kecamatan }}" : data{{ $data->id_kecamatan }},
+            @endforeach
+        };
+        L.control.layers(baseMaps, overLayer).addTo(map);
+        @foreach($kecamatan as $data)
+            L.geoJSON({!! $data->geojson !!}, {
+                style: {
+                    color: 'black',
+                    fillColor: '{{ $data->warna }}',
+                    fillOpacity: 0.5,
+                },
+            }).addTo( data{{ $data->id_kecamatan }});
+        @endforeach
     </script>
 @endsection
