@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/sejarah', function () {
+    return view('sejarah');
+});
+
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
