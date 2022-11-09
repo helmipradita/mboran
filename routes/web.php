@@ -25,6 +25,8 @@ Route::get('/sejarah', function () {
     return view('sejarah');
 });
 
+Route::get('/list', [ListController::class, 'index'])->name('list');
+
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
