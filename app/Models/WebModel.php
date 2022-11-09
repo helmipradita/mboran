@@ -14,4 +14,33 @@ class WebModel extends Model
         return DB::table('kecamatan')
             ->get();
     }
+
+    public function DetailKecamatan($id_kecamatan)
+    {
+        return DB::table('kecamatan')
+            ->where('id_kecamatan', $id_kecamatan)->first();
+    }
+
+    public function DataPenjual($id_kecamatan)
+    {
+        return DB::table('penjual')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'penjual.id_kecamatan')
+            ->where('penjual.id_kecamatan', $id_kecamatan)
+            ->get();
+    }
+
+    public function AllDataPenjual()
+    {
+        return DB::table('penjual')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'penjual.id_kecamatan')
+            ->get();
+    }
+
+    public function DetailPenjual($id_tempat)
+    {
+        return DB::table('penjual')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'penjual.id_kecamatan')
+            ->where('penjual.id_penjual', $id_penjual)
+            ->first();
+    }
 }

@@ -19,15 +19,13 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [WebController::class, 'index'])->name('index');
 
 Route::get('/sejarah', function () {
     return view('sejarah');
 });
 
-Route::get('/listkecamatan', [WebController::class, 'listkecamatan'])->name('listkecamatan');
+Route::get('/kecamatan/{id_kecamatan}', [WebController::class, 'kecamatan'])->name('kecamatan');
 
 Auth::routes();
 

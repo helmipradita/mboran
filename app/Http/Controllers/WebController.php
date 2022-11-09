@@ -12,12 +12,27 @@ class WebController extends Controller
         $this->WebModel = new WebModel();
     }
 
-    public function listkecamatan() {
+    public function index()
+    {
+        $data = [
+            'kecamatan' => $this->WebModel->DataKecamatan(),
+            'penjual' => $this->WebModel->AllDataPenjual(),
+        ];
+
+        return view('index', $data);
+    }
+
+    public function kecamatan($id_kecamatan) 
+    {
+        $kec = $this->WebModel->DetailKecamatan($id_kecamatan);
+
         $data = [
             'title' => 'List Kecamatan',
             'kecamatan' => $this->WebModel->DataKecamatan(),
+            'penjual' => $this->WebModel->DataPenjual($id_kecamatan),
+            'kec' => $kec,
         ];
 
-        return view('listKecamatan', $data);
+        return view('kecamatan', $data);
     }
 }
