@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ListController;
+use App\Http\Controllers\KecamatanController;
+use App\Http\Controllers\TempatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +18,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+//Kecamatan
+Route::get('/kecamatan', [KecamatanController::class, 'index'])->name('kecamatan.index');
+Route::post('kecamatan/create', [KecamatanController::class, 'store'])->name('kecamatan.create');
+Route::get('kecamatan/edit/{id_kecamatan}', [KecamatanController::class, 'edit'])->name('kecamatan.edit');
+Route::post('kecamatan/update/{id_kecamatan}', [KecamatanController::class, 'update']);
+Route::get('kecamatan/delete/{id_kecamatan}', [KecamatanController::class, 'delete'])->name('kecamatan.delete');
