@@ -6,7 +6,7 @@
             <h1 class="h2">Edit Kecamatan</h1>
         </div>
         <div class="">
-            <form action="/kecamatan/update/{{ $kecamatan->id_kecamatan }}" method="post">
+            <form action="/dashboard/kecamatan/update/{{ $kecamatan->id_kecamatan }}" method="post">
                 @csrf
                 @method('POST')
                 <div class="mb-3">
