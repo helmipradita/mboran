@@ -22,6 +22,16 @@ class WebController extends Controller
         return view('index', $data);
     }
 
+    public function penjual()
+    {
+        $data = [
+            'kecamatan' => $this->WebModel->DataKecamatan(),
+            'penjual' => $this->WebModel->AllDataPenjual(),
+        ];
+
+        return view('penjual', $data);
+    }
+
     public function kecamatan($id_kecamatan) 
     {
         $kec = $this->WebModel->DetailKecamatan($id_kecamatan);

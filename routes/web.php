@@ -20,6 +20,7 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', [WebController::class, 'index'])->name('index');
+Route::get('/penjual', [WebController::class, 'penjual'])->name('penjual');
 
 Route::get('/sejarah', function () {
     return view('sejarah');
