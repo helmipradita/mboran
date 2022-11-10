@@ -19,13 +19,5 @@
         <div class="col-md-4">
             <a href="/sejarah" class="btn btn-primary">Kenali Nasi Boranan</a>
         </div>
-
-        <div class="col-4">
-            <h5>Filter Toko berdasarkan Kecamatan:</h5>
-            <hr>
-            @foreach ($kecamatan as $data)
-                <li><a href="/kecamatan/{{ $data->id_kecamatan }}" class="text-decoration-none">{{ $data->kecamatan }}</a></li>
-            @endforeach
-        </div>
     </div>
 @endsection
