@@ -17,6 +17,7 @@ class CreatePenjualTable extends Migration
             $table->increments('id_penjual');
             $table->string('nama_penjual');
             $table->foreignId('id_kecamatan');
+            $table->string('ranting');
             $table->longText('alamat');
             $table->string('posisi');
             $table->string('deskripsi');
