@@ -31,6 +31,7 @@ class PenjualController extends Controller
         $validatedData = $request->validate([
             'nama_penjual' => 'required',
             'id_kecamatan' => 'required',
+            'ranting' => 'required',
             'alamat' => 'required',
             'posisi' => 'required',
             'deskripsi' => 'required',
@@ -89,6 +90,7 @@ class PenjualController extends Controller
         $rules = [
             'nama_penjual' => 'required',
             'id_kecamatan' => 'required',
+            'ranting' => 'required',
             'alamat' => 'required',
             'posisi' => 'required',
             'deskripsi' => 'required',

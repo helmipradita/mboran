@@ -2,7 +2,7 @@
 
 @section('content')
     <div >
-        <a href="/" class="text-decoration-none">
+        <a href="{{ url()->previous() }}" class="text-decoration-none">
             <span data-feather="arrow-left"></span>
                 Kembali
         </a>

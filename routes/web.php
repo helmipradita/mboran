@@ -20,13 +20,17 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', [WebController::class, 'index'])->name('index');
+
 Route::get('/penjual', [WebController::class, 'penjual'])->name('penjual');
 
-Route::get('/sejarah', function () {
-    return view('sejarah');
-});
-
 Route::get('/kecamatan/{id_kecamatan}', [WebController::class, 'kecamatan'])->name('kecamatan');
+
+Route::get('/detailpenjual/{id_penjual}', [WebController::class, 'detailpenjual'])->middleware('auth')->name('detailpenjual');
+
+Route::get('/sejarah', [WebController::class, 'sejarah'])->name('sejarah');
+
+Route::get('/penilaian', [WebController::class, 'penilaian'])->name('penilaian');
+
 
 Auth::routes();
 

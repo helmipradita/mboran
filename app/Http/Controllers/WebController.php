@@ -45,4 +45,36 @@ class WebController extends Controller
 
         return view('kecamatan', $data);
     }
+
+    public function detailpenjual($id_penjual)
+    {
+        $penjual = $this->WebModel->DetailPenjual($id_penjual);
+
+        $data = [
+            'kecamatan' => $this->WebModel->DataKecamatan(),
+            'penjual' => $penjual,
+        ];
+
+        return view('detailpenjual', $data);
+    }
+    
+    public function sejarah() 
+    {
+        $data = [
+            'title' => 'Sejarah',
+            
+        ];
+
+        return view('sejarah', $data);
+    }
+
+    public function penilaian() 
+    {
+        $data = [
+            'title' => 'Penilaian Penjual',
+            
+        ];
+
+        return view('penilaian', $data);
+    }
 }

@@ -1,12 +1,12 @@
 <div class="row">
-    <div class="mb-3 col-md-4">
+    <div class="mb-3 col-md-6">
         <label class="form-label" for="nama_penjual">Nama penjual</label>
         <input type="text" name="nama_penjual" id="nama_penjual" class="form-control" required>
         @error('nama_penjual')
             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
         @enderror
     </div>
-    <div class="mb-3 col-md-4">
+    <div class="mb-3 col-md-6">
         <label for="id_kecamatan" class="form-label">Kecamatan</label>
         <select name="id_kecamatan" id="id_kecamatan" class="form-control">
             <option value="" >Pilih Kecamatan</option>
@@ -18,7 +18,21 @@
             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
         @enderror
     </div>
-    <div class="mb-3 col-md-4">
+    <div class="mb-3 col-md-6">
+        <label for="ranting" class="form-label">Ranting</label>
+        <select name="ranting" id="ranting" class="form-control">
+            <option value="" >Pilih Ranting</option>
+            <option value="Sangat Rekomendasi" >Sangat Rekomendasi</option>
+            <option value="Rekomendasi" >Rekomendasi</option>
+            <option value="Biasa" >Biasa</option>
+            <option value="Kurang" >Kurang</option>
+            <option value="Sangat Kurang" >Sangat Kurang</option>
+        </select>
+        @error('ranting')
+            <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
+        @enderror
+    </div>
+    <div class="mb-3 col-md-6">
         <label class="form-label" for="foto">Foto</label>
         <input type="file" name="foto" id="foto" class="form-control" accept="image/jpeg,image/png">
         @error('foto')
@@ -39,7 +53,7 @@
             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
         @enderror
     </div>
-    <div class="mb-3 col-md-6">
+    <div class="mb-3 col-md-12">
         <label class="form-label" for="posisi">Posisi</label>
         <input type="text" name="posisi" id="posisi" class="form-control" readonly>
         @error('posisi')
@@ -83,7 +97,7 @@
         });
 
     var map = L.map('map', {
-        center: [-7.470978040905679, 112.44103322529277],
+        center: [-7.119203378119474, 112.41418232082489],
         zoom: 14,
         layers: [peta1],
     });
@@ -98,7 +112,7 @@
     L.control.layers(baseMaps).addTo(map);
 
     //Get titik koordinat
-    var curLocation = [-7.470978040905679, 112.44103322529277];
+    var curLocation = [-7.119203378119474, 112.41418232082489];
     map.attributionControl.setPrefix(false);
 
     var marker = new L.marker(curLocation,{

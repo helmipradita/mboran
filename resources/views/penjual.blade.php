@@ -1,11 +1,19 @@
 @extends('layouts.frontend')
 
 @section('content')
-    <h1>Halaman List Penjual</h1>    
-
-    <div id="map" style="width: 100%; height: 400px;"></div>
+    <div >
+        <a href="{{ url()->previous() }}" class="text-decoration-none">
+            <span data-feather="arrow-left"></span>
+                Kembali
+        </a>
+    </div>
+    <h1>Halaman List Penjual Nasi Boranan</h1>    
 
     <div class="row mt-4" style="margin-bottom: 60px">
+        <div class="col-md-8">
+            <div id="map" style="width: 100%; height: 400px;"></div>
+        </div>
+
         <div class="col-4">
             <h5>Filter Kecamatan:</h5>
             <hr>
@@ -13,6 +21,35 @@
                 <li><a href="/kecamatan/{{ $data->id_kecamatan }}" class="text-decoration-none">{{ $data->kecamatan }}</a></li>
             @endforeach
         </div>
+
+        <div class="col-md-12">
+            <div class="table-responsive mt-4">
+                <h5>List Penjual:</h5>
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nama penjual</th>
+                            <th>Kecamatan</th>
+                            <th>Alamat</th>
+                            <th>Posisi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($penjual as $index => $data)
+                            <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $data->nama_penjual }}</td>
+                                <td>{{ $data->kecamatan }}</td>
+                                <td>{{ $data->alamat }}</td>
+                                <td>{{ $data->posisi }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      
     </div>
   
     <script>
@@ -42,7 +79,7 @@
         @endforeach
         
         var map = L.map('map', {
-            center: [-7.470978040905679, 112.44103322529277],
+            center: [-7.119203378119474, 112.41418232082489],
             zoom: 14,
             layers: [peta1, 
             @foreach ($kecamatan as $data)

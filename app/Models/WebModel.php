@@ -36,7 +36,7 @@ class WebModel extends Model
             ->get();
     }
 
-    public function DetailPenjual($id_tempat)
+    public function DetailPenjual($id_penjual)
     {
         return DB::table('penjual')
             ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'penjual.id_kecamatan')

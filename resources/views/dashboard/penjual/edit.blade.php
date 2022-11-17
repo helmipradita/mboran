@@ -29,17 +29,17 @@
                             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-12">
-                        <label for="alamat" class="form-label">Alamat</label>
-                        <textarea class="form-control" name="alamat" id="alamat" rows="3">{{ old('alamat', $penjual->alamat) }}</textarea>
-                        @error('alamat')
-                            <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
-                        @enderror
-                    </div>
                     <div class="mb-3 col-md-6">
-                        <label class="form-label" for="posisi">Posisi</label>
-                        <input type="text" name="posisi" id="posisi" class="form-control" value="{{ old('posisi', $penjual->posisi) }}" readonly>
-                        @error('posisi')
+                        <label for="ranting" class="form-label">Ranting</label>
+                        <select name="ranting" id="ranting" class="form-control" class="form-control" required>
+                            <option value="{{ old('ranting', $penjual->ranting) }}" >{{ $penjual->ranting }}</option>
+                            <option value="Sangat Rekomendasi" >Sangat Rekomendasi</option>
+                            <option value="Rekomendasi" >Rekomendasi</option>
+                            <option value="Biasa" >Biasa</option>
+                            <option value="Kurang" >Kurang</option>
+                            <option value="Sangat Kurang" >Sangat Kurang</option>
+                        </select>
+                        @error('ranting')
                             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
                         @enderror
                     </div>
@@ -51,10 +51,24 @@
                             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-12">
+                    <div class="mb-3 col-md-6">
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <textarea class="form-control" name="alamat" id="alamat" rows="3">{{ old('alamat', $penjual->alamat) }}</textarea>
+                        @error('alamat')
+                            <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
+                        @enderror
+                    </div>
+                    <div class="mb-3 col-md-6">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
                         <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3">{{ old('deskripsi', $penjual->deskripsi) }}</textarea>
                         @error('deskripsi')
+                            <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
+                        @enderror
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label class="form-label" for="posisi">Posisi</label>
+                        <input type="text" name="posisi" id="posisi" class="form-control" value="{{ old('posisi', $penjual->posisi) }}" readonly>
+                        @error('posisi')
                             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
                         @enderror
                     </div>
