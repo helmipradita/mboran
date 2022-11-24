@@ -25,7 +25,6 @@ class DashboardController extends Controller
     public function index()
     {
         $data = [
-            'tempat' => DB::table('tempat')->count(),
             'users' => DB::table('users')->count(),
             
 

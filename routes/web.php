@@ -51,13 +51,6 @@ Route::prefix('dashboard')->group(function () {
     Route::get('penjual/edit/{id_penjual}', [PenjualController::class, 'edit'])->name('penjual.edit');
     Route::post('penjual/update/{id_penjual}', [PenjualController::class, 'update']);
     Route::get('penjual/delete/{id_penjual}', [PenjualController::class, 'delete'])->name('penjual.delete');
-
-    //Tempat
-    Route::get('tempat', [TempatController::class, 'index'])->name('tempat.index');
-    Route::post('tempat/create', [TempatController::class, 'store'])->name('tempat.create');
-    Route::get('tempat/edit/{id_tempat}', [TempatController::class, 'edit'])->name('tempat.edit');
-    Route::post('tempat/update/{id_tempat}', [TempatController::class, 'update']);
-    Route::get('tempat/delete/{id_tempat}', [TempatController::class, 'delete'])->name('tempat.delete');
 });
 
 
