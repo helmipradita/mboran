@@ -26,7 +26,7 @@
             <h5>Kecamatan: </h5>{{ $penjual->kecamatan }}
         </div>
         <div class="col-md-4 mt-3">
-            <h5>Deskirpsi: </h5>{{ $penjual->deskripsi }}
+            <h5>Deskirpsi: </h5>{!! $penjual->deskripsi !!}
         </div>
         <div class="col-md-4 mt-3">
             <h5>Alamat:</h5>{{ $penjual->alamat }}

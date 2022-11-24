@@ -10,14 +10,14 @@
                 @csrf
                 @method('POST')
                 <div class="row">
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label class="form-label" for="nama_penjual">Nama penjual</label>
                         <input type="text" name="nama_penjual" id="nama_penjual" class="form-control @error('nama_penjual') is-invalid @enderror" value="{{ old('nama_penjual', $penjual->nama_penjual) }}" required autofocus>
                         @error('nama_penjual')
                             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label for="id_kecamatan" class="form-label">Kecamatan</label>
                         <select name="id_kecamatan" id="id_kecamatan" class="form-control" class="form-control @error('nama_penjual') is-invalid @enderror" required>
                             <option value="{{ old('id_kecamatan', $penjual->id_kecamatan) }}" >{{ $penjual->kecamatan }}</option>
@@ -29,7 +29,7 @@
                             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label for="ranting" class="form-label">Ranting</label>
                         <select name="ranting" id="ranting" class="form-control" class="form-control" required>
                             <option value="{{ old('ranting', $penjual->ranting) }}" >{{ $penjual->ranting }}</option>
@@ -43,7 +43,14 @@
                             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-8">
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <textarea class="form-control" name="alamat" id="alamat" rows="3">{{ old('alamat', $penjual->alamat) }}</textarea>
+                        @error('alamat')
+                            <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
+                        @enderror
+                    </div>
+                    <div class="mb-3 col-md-4">
                         <label class="form-label" for="foto">Foto</label>
                         <input type="hidden" name="oldImage" value="{{ $penjual->foto }}">
                         <input type="file" name="foto" id="foto" class="form-control" accept="image/jpeg,image/png">
@@ -51,21 +58,15 @@
                             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-6">
-                        <label for="alamat" class="form-label">Alamat</label>
-                        <textarea class="form-control" name="alamat" id="alamat" rows="3">{{ old('alamat', $penjual->alamat) }}</textarea>
-                        @error('alamat')
-                            <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
-                        @enderror
-                    </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-8">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
-                        <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3">{{ old('deskripsi', $penjual->deskripsi) }}</textarea>
+                        <input id="deskripsi" type="hidden" name="deskripsi" value="{{ old('deskripsi', $penjual->deskripsi) }}">
+                        <trix-editor input="deskripsi"></trix-editor>
                         @error('deskripsi')
                             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
                         @enderror
                     </div>
-                    <div class="mb-3 col-md-12">
+                    <div class="mb-3 col-md-4">
                         <label class="form-label" for="posisi">Posisi</label>
                         <input type="text" name="posisi" id="posisi" class="form-control" value="{{ old('posisi', $penjual->posisi) }}" readonly>
                         @error('posisi')

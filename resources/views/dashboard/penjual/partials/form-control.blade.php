@@ -1,12 +1,12 @@
 <div class="row">
-    <div class="mb-3 col-md-6">
+    <div class="mb-3 col-md-4">
         <label class="form-label" for="nama_penjual">Nama penjual</label>
         <input type="text" name="nama_penjual" id="nama_penjual" class="form-control" required>
         @error('nama_penjual')
             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
         @enderror
     </div>
-    <div class="mb-3 col-md-6">
+    <div class="mb-3 col-md-4">
         <label for="id_kecamatan" class="form-label">Kecamatan</label>
         <select name="id_kecamatan" id="id_kecamatan" class="form-control">
             <option value="" >Pilih Kecamatan</option>
@@ -18,7 +18,7 @@
             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
         @enderror
     </div>
-    <div class="mb-3 col-md-6">
+    <div class="mb-3 col-md-4">
         <label for="ranting" class="form-label">Ranting</label>
         <select name="ranting" id="ranting" class="form-control">
             <option value="" >Pilih Ranting</option>
@@ -32,34 +32,34 @@
             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
         @enderror
     </div>
-    <div class="mb-3 col-md-6">
-        <label class="form-label" for="foto">Foto</label>
-        <input type="file" name="foto" id="foto" class="form-control" accept="image/jpeg,image/png">
-        @error('foto')
-            <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
-        @enderror
-    </div>
-    <div class="mb-3 col-md-6">
+    <div class="mb-3 col-md-8">
         <label for="alamat" class="form-label">Alamat</label>
         <textarea class="form-control" name="alamat" id="alamat" rows="2"></textarea>
         @error('alamat')
             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
         @enderror
     </div>
-    <div class="mb-3 col-md-6">
-        <label for="deskripsi" class="form-label">Deskripsi</label>
-        <textarea class="form-control" name="deskripsi" id="deskripsi" rows="2"></textarea>
-        @error('deskripsi')
+    
+    <div class="mb-3 col-md-4">
+        <label class="form-label" for="foto">Foto</label>
+        <input type="file" name="foto" id="foto" class="form-control" accept="image/jpeg,image/png">
+        @error('foto')
             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
         @enderror
     </div>
-    <div class="mb-3 col-md-12">
+    <div class="mb-3 col-md-8">
+        <label for="deskripsi" class="form-label">Deskripsi</label>
+        <input id="deskripsi" type="hidden" name="deskripsi">
+        <trix-editor input="deskripsi"></trix-editor>
+    </div>
+    <div class="mb-3 col-md-4">
         <label class="form-label" for="posisi">Posisi</label>
-        <input type="text" name="posisi" id="posisi" class="form-control" readonly>
+        <input type="text" name="posisi" id="posisi" class="form-control">
         @error('posisi')
             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
         @enderror
     </div>
+   
 </div>
 
 <div class="mb-3">
@@ -70,6 +70,10 @@
 
 
 <script>
+    document.addEventListener('trix-file-accept', function(e) {
+        e.preventDefault();
+    })
+
     var peta1 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
                 '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
