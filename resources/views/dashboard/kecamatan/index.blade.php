@@ -40,14 +40,10 @@
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $data->kecamatan }}</td>
                         <td style="background-color: {{ $data->warna }}"></td>
-                        {{-- <td>{{ implode(', ', $data->getPermissionNames()->toArray()) }}</td>
                         <td>
-                            <a href="{{ route('assign.edit', $data) }}" class="btn btn-primary btn-sm">Sync</a>
-                        </td> --}}
-                        <td>
-                            <a href="kecamatan/edit/{{ $data->id_kecamatan }}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="kecamatan/edit/{{ $data->id_kecamatan }}" class="btn btn-primary">Edit</a>
                             
-                            <a href="kecamatan/delete/{{ $data->id_kecamatan }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="kecamatan/delete/{{ $data->id_kecamatan }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 @endforeach

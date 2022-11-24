@@ -44,14 +44,9 @@
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $data->nama_penjual }}</td>
                         <td>{{ $data->kecamatan }}</td>
-                        {{-- <td>{{ implode(', ', $data->getPermissionNames()->toArray()) }}</td>
                         <td>
-                            <a href="{{ route('assign.edit', $data) }}" class="btn btn-primary btn-sm">Sync</a>
-                        </td> --}}
-                        <td>
-                            <a href="penjual/edit/{{ $data->id_penjual }}" class="btn btn-info">Edit</a>
-                            
-                            <a href="penjual/delete/{{ $data->id_penjual }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="penjual/edit/{{ $data->id_penjual }}" class="btn btn-primary">Edit</a>
+                            <a href="penjual/delete/{{ $data->id_penjual }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 @endforeach
