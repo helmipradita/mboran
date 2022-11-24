@@ -41,37 +41,10 @@ class PenjualController extends Controller
         if ($request->file('foto')) {
             $validatedData['foto'] = $request->file('foto')->store('penjual-image');
 
-            // PenjualModel::InsertData($validatedData);
              $this->PenjualModel->InsertData($validatedData);
         }
 
-        return redirect('/dashboard/penjual')->with('success', 'New product has been added');
-
-        // $validatedData = $request->validate([
-        //     'nama_penjual' => 'required',
-        //     'id_kecamatan' => 'required',
-        //     'alamat' => 'required',
-        //     'posisi' => 'required',
-        //     'deskripsi' => 'required',
-        //     'foto' => 'required|max:1024',
-        // ]);
-
-        // $file = Request()->foto;
-        // $filename = $file->getClientOriginalName();
-        // $file->move(public_path('penjual-image'), $filename);
-
-        // $data = [
-        //     'nama_penjual' => request()->nama_penjual,
-        //     'id_kecamatan' => request()->id_kecamatan,
-        //     'alamat' => request()->alamat,
-        //     'posisi' => request()->posisi,
-        //     'deskripsi' => request()->deskripsi,
-        //     'foto' => request()->foto,
-        // ];
-
-        // $this->PenjualModel->InsertData($data);
-
-        // return back();
+        return redirect('/dashboard/penjual')->with('success', 'Penjual berhasil di tambahkan');
     }
 
     public function edit($id_penjual)
@@ -108,55 +81,7 @@ class PenjualController extends Controller
 
         $this->PenjualModel->UpdateData($id_penjual, $validatedData);
 
-        return redirect('/dashboard/penjual')->with('info', 'Product has been updated!');
-
-
-        // request()->validate([
-        //     'nama_penjual' => 'required',
-        //     'id_kecamatan' => 'required',
-        //     'alamat' => 'required',
-        //     'posisi' => 'required',
-        //     'deskripsi' => 'required',
-        //     'foto' => 'required|max:1024',
-        // ]);
-
-        // if (Request()->foto <> "") {
-        //     //hapus foto lama
-        //     $penjual = $this->PenjualModel->DetailData($id_penjual);
-        //     if ($penjual->foto <> "") {
-        //         unlink(public_path('penjual-image'). '/' . $penjual->foto);
-        //     }
-
-        //     //jika ingin ganti foto
-        //     $file = Request()->foto;
-        //     $filename = $file->getClientOriginalName();
-        //     $file->move(public_path('penjual-image'), $filename);
-            
-        //     $data = [
-        //         'nama_penjual' => request()->nama_penjual,
-        //         'id_kecamatan' => request()->id_kecamatan,
-        //         'alamat' => request()->alamat,
-        //         'posisi' => request()->posisi,
-        //         'deskripsi' => request()->deskripsi,
-        //         'foto' => request()->foto,
-        //     ];
-
-        //     $this->PenjualModel->UpdataData($id_penjual, $data);
-        // }else {
-        //     //jika tidak ganti foto
-        //     $data = [
-        //         'nama_penjual' => request()->nama_penjual,
-        //         'id_kecamatan' => request()->id_kecamatan,
-        //         'alamat' => request()->alamat,
-        //         'posisi' => request()->posisi,
-        //         'deskripsi' => request()->deskripsi,
-        //         'foto' => request()->foto,
-        //     ];
-
-        //     $this->PenjualModel->UpdataData($id_penjual, $data);
-        // }
-
-        // return redirect()->route('penjual.index');
+        return redirect('/dashboard/penjual')->with('info', 'Penjual berhasil di ubah');
     }
 
     public function delete(PenjualModel $penjual, $id_penjual) 
@@ -169,13 +94,6 @@ class PenjualController extends Controller
 
         $this->PenjualModel->DeleteData($id_penjual);
 
-        return redirect('/dashboard/penjual')->with('delete', 'Product has been deleted!');
+        return redirect('/dashboard/penjual')->with('delete', 'Penjual Baru berhasil di hapus');
     }
-
-    // public function delete($id_kecamatan)
-    // {
-    //     $this->KecamatanModel->DeleteData($id_kecamatan);
-
-    //     return redirect()->route('kecamatan.index');
-    // }
 }
