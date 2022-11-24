@@ -33,6 +33,7 @@
                             <th>Kecamatan</th>
                             <th>Alamat</th>
                             <th>Posisi</th>
+                            <th>Opsi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +44,9 @@
                                 <td>{{ $data->kecamatan }}</td>
                                 <td>{{ $data->alamat }}</td>
                                 <td>{{ $data->posisi }}</td>
+                                <td>
+                                    <a href="/detailpenjual/{{ $data->id_penjual }}" class="btn btn-info">Cek</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -74,6 +78,7 @@
                     'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                 id: 'mapbox/dark-v10'
             });
+            
         @foreach ($kecamatan as $data)
             var data{{ $data->id_kecamatan }} = L.layerGroup(); 
         @endforeach
@@ -110,7 +115,7 @@
             }).addTo( data{{ $data->id_kecamatan }});
         @endforeach
         @foreach($penjual as $data)
-            
+        var informasi = '<table class="table table-bordered"><tr><td colspan="2"><img src="{{ asset('storage/'. $data->foto) }}" width="250px"></td></tr><tbody><tr><td>Nama penjual</td><td style="text-bold"><span style="font-weight:bold">{{ $data->nama_penjual }}</span></td></tr><tr><td>Kecamatan</td><td><span style="font-weight:bold">{{ $data->kecamatan }}</span></td></tr><tr><td colspan="2" class="text-center text-black"><a href="/detailpenjual/{{ $data->id_penjual }}" class="btn btn-outline-secondary btn-sm">Detail</td></tr></tbody></table>';
         
             L.marker([{!! $data->posisi !!}])
             .addTo(map)
