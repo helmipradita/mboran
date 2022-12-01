@@ -1,6 +1,12 @@
 @extends('layouts.frontend')
 
 @section('content')
+<style>
+    body {
+      background-color: black
+    }
+  </style>
+  
 <div class="container">
     <div class="text-center">
         <h1>LOGO MBORAN</h1>

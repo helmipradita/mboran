@@ -1,23 +1,33 @@
 @extends('layouts.frontend')
 
 @section('content')
-    <div class="container">
+<style>
+    body {
+      background-color: black
+    }
+  </style>
         <div class="text-center">
-            <h1>LOGO MBORAN</h1>
+            <img src="{{URL::asset('/img/mboranLogo 2.png')}}" alt="">
         </div>
 
-        <div class="col-md-5">
-            <h3>Belum Ke Lamongan Kalau Belum Makan Nasi Boranan</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{URL::asset('/img/nasi_boranan.png')}}" alt="" style="width: 600px; margin-left:630px">
+            </div>
+            <div class="" style="align-items: center">
+                <h3 class="text-white" style="margin-right:850px; margin-top:-320px; margin-bottom:30px; text-align: center; font-size: 30px">Belum Ke Lamongan Kalau Belum Makan Nasi Boranan</h3>
+
+                <div class="col-md-4" style="margin-left: 30px">
+                    <a href="/login" class="btn btn-secondary">Masuk</a>
+                        <a href="/register" class="btn btn-secondary">Daftar</a>
+                </div>
+                <br>
+                <div class="col-md-4" style="margin-left: 20px">
+                    <a href="/sejarah" class="btn btn-primary">Kenali Nasi Boranan</a>
+                </div>
+            </div>
+           
         </div>
 
-        <div class="col-md-4">
-            <a href="/login" class="btn btn-secondary">Masuk</a>
-            <a href="/register" class="btn btn-secondary">Daftar</a>
-        </div>
         
-        <br>
-        <div class="col-md-4">
-            <a href="/sejarah" class="btn btn-primary">Kenali Nasi Boranan</a>
-        </div>
-    </div>
 @endsection
