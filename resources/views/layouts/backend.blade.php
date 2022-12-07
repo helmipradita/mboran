@@ -22,20 +22,51 @@
       trix-toolbar [data-trix-button-group="file-tools"] {
         display: none
       }
+
+      
     </style>
 
 
     <title>Mboran</title>
   </head>
   <body>
-    <div id="app">
+    <div id="app" class="">
       <x-layouts.navigation></x-layouts.navigation>
       
-      <div class="container">
-          <br>
-          @yield('content')
+      <div class="container text-white">
+        <br>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">&#128075; Halo, {{ auth()->user()->name }} </h1>        
+        </div>
+        <br>
       </div>
-    <div id="app">
+
+      <div class="container">
+        <div class="py-3">
+          <div class="row">
+            <div class="col-md-3">
+              <a href="/dashboard" class="list-group-item list-group-item-action">
+                Dashboard
+              </a>
+
+              <a href="/dashboard/kecamatan" class="list-group-item list-group-item-action">
+                CRUD Kecamatan
+              </a>
+
+              <a href="/dashboard/penjual" class="list-group-item list-group-item-action">
+                CRUD Penjual
+              </a>
+
+            </div>
+  
+            <div class="col-md-8">
+              @yield('content')
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

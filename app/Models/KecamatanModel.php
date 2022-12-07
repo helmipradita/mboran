@@ -10,7 +10,7 @@ class KecamatanModel extends Model
 {
     public function AllData()
     {
-        return DB::table('kecamatan')
+        return DB::table('kecamatan')->orderBy('id_kecamatan', 'DESC')
             ->get();
     }
 

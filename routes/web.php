@@ -51,6 +51,11 @@ Route::prefix('dashboard')->group(function () {
     Route::get('penjual/edit/{id_penjual}', [PenjualController::class, 'edit'])->name('penjual.edit');
     Route::post('penjual/update/{id_penjual}', [PenjualController::class, 'update']);
     Route::get('penjual/delete/{id_penjual}', [PenjualController::class, 'delete'])->name('penjual.delete');
+
+    //Dashboard
+    Route::middleware(['role:admin'])->group(function () {
+        
+    });
 });
 
 

@@ -47,12 +47,12 @@
             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
         @enderror
     </div>
-    <div class="mb-3 col-md-8">
+    <div class="mb-3 col-md-12">
         <label for="deskripsi" class="form-label">Deskripsi</label>
         <input id="deskripsi" type="hidden" name="deskripsi">
         <trix-editor input="deskripsi"></trix-editor>
     </div>
-    <div class="mb-3 col-md-4">
+    <div class="mb-3 col-md-12">
         <label class="form-label" for="posisi">Posisi</label>
         <input type="text" name="posisi" id="posisi" class="form-control">
         @error('posisi')

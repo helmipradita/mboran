@@ -1,18 +1,22 @@
 @extends('layouts.backend')
 
 @section('content')
-    
-
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
+    <div class="mt-2">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @elseif(session('info'))
+            <div class="alert alert-info">
+                {{ session('info') }}
+            </div>
+        @endif
+    </div>
     
     <div class="row">
         <div class="col-md-6">
             <div class="mb-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <h1 class="h2">Tambah Kecamatan</h1>
                 </div>
                 <div class="">
@@ -25,7 +29,7 @@
         </div>
         
         <div class="col-md-6">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                 <h1 class="h2">List Kecamatan</h1>
             </div>
 

@@ -15,7 +15,7 @@ class PenjualModel extends Model
     public function AllData()
     {
         return DB::table('penjual')
-            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'penjual.id_kecamatan')
+            ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'penjual.id_kecamatan')->orderBy('id_penjual', 'DESC')
             ->get();
     }
 
