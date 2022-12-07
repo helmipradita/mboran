@@ -9,11 +9,11 @@
   
 <div class="container">
     <div class="text-center">
-        <h1>LOGO MBORAN</h1>
+        <img src="{{URL::asset('/img/mboranLogo 2.png')}}" alt="">
     </div>
 </div>
 
-<div class="container">
+<div class="container text-white">
     <div class="row">
         <div class="col-sm">
             <p>Nasi Boranan muncul sekitar tahun 1945 hingga 1950-an. Saat itu nasi boranan hanya dibuat untuk upacara desa atau hajatan. Kemudian nasi boranan berkembang dan dijajakan secara turun temurun. Pada umumnya, penjual nasi boranan adalah anak dari penjual nasi boranan sebelumnya. Bahkan tradisi berjualanan nasi boranan berlangsung hingga generasi ketiga hingga keempat. Awalnya para penjual berjalan kaki menjajakan nasi dan lauk pauk serta peralatan dagangan yang digendong. Mereka berjualan antar desa dan berhenti di teras-teras rumah warga. Namun sekitar tahun 1980-an sejak adanya Perumnas Made, penjual nasi baronan mulai mangkal di satu tempat dengan berjajar karena alasan tenaga dan usia.

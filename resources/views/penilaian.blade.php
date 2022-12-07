@@ -2,10 +2,11 @@
 
 @section('content')
 <style>
-    .full {
-        background-color: black;
+    body {
+      background-color: black
     }
-</style>
+  </style>
+  
 
 <div class="full">
     <div class="container">
