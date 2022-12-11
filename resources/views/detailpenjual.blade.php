@@ -7,7 +7,7 @@
             Kembali
     </a>
 </div>
-    <h1>Halaman Detail penjual: <b>{{ $penjual->nama_penjual }}</b></h1>    
+    <h1>Halaman Detail penjual: <b>{{ $penjual->name }}</b></h1>    
 
     <div class="row">
         <div class="col-md-6">
@@ -20,7 +20,7 @@
     
     <div class="row">
         <div class="col-md-4 mt-3">
-            <h5>Nama penjual:</h5>{{ $penjual->nama_penjual }}
+            <h5>Nama penjual:</h5>{{ $penjual->name }}
         </div>
         <div class="col-md-4 mt-3">
             <h5>Kecamatan: </h5>{{ $penjual->kecamatan }}

@@ -16,6 +16,7 @@ class PenjualModel extends Model
     {
         return DB::table('penjual')
             ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'penjual.id_kecamatan')->orderBy('id_penjual', 'DESC')
+            ->join('users', 'users.id', '=', 'penjual.user_id')
             ->get();
     }
 
@@ -29,6 +30,7 @@ class PenjualModel extends Model
     {
         return DB::table('penjual')
             ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'penjual.id_kecamatan')
+            ->join('users', 'users.id', '=', 'penjual.user_id')
             ->where('id_penjual', $id_penjual)->first();
     }
 

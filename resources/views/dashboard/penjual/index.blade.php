@@ -1,15 +1,15 @@
 @extends('layouts.backend')
 
 @section('content')
-    <div class="mt-2">
+    <div class="">
         @if(session('success'))
             <div class="alert alert-success">
-                {{ session('success') }}
+                {!! session('success') !!}
             </div>
         @elseif(session('info'))
-            <div class="alert alert-info">
-                {{ session('info') }}
-            </div>
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            {!! session('info') !!}
+        </div>
         @endif
     </div>
     
@@ -42,7 +42,7 @@
                 @foreach($penjual as $index => $data)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $data->nama_penjual }}</td>
+                        <td>{{ $data->name }}</td>
                         <td>{{ $data->kecamatan }}</td>
                         <td>
                             <a href="/detailpenjual/{{ $data->id_penjual }}" class="btn btn-info">View</a>

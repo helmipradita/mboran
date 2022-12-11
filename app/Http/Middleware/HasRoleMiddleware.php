@@ -17,10 +17,13 @@ class HasRoleMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $roles = Role::get();
-        if($request->user()->HhasAnyRole($roles)) {
-            return $next($request);
-        }
-        abort(403);
+
+            $roles = Role::get();
+            if ($request->user()->hasAnyRole($roles)) {
+                return $next($request);
+            } else {
+                abort(403);
+            }
+        
     }
 }

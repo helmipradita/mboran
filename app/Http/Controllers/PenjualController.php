@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PenjualModel;
 use App\Models\KecamatanModel;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 class PenjualController extends Controller
@@ -13,6 +14,7 @@ class PenjualController extends Controller
     {
         $this->PenjualModel = new PenjualModel();
         $this->KecamatanModel = new KecamatanModel();
+        $this->User = new User();
         $this->middleware('auth');
     }
 
@@ -21,6 +23,7 @@ class PenjualController extends Controller
         $data = [
             'penjual' => $this->PenjualModel->AllData(),
             'kecamatan' => $this->KecamatanModel->AllData(),
+            'users' => $this->User->AllData(),
         ];
 
         return view('dashboard.penjual.index', $data);
@@ -29,7 +32,7 @@ class PenjualController extends Controller
     public function store(Request $request) 
     {
         $validatedData = $request->validate([
-            'nama_penjual' => 'required',
+            'user_id' => 'required',
             'id_kecamatan' => 'required',
             'ranting' => 'required',
             'alamat' => 'required',
@@ -61,7 +64,6 @@ class PenjualController extends Controller
     public function update(Request $request, $id_penjual)
     {
         $rules = [
-            'nama_penjual' => 'required',
             'id_kecamatan' => 'required',
             'ranting' => 'required',
             'alamat' => 'required',
@@ -81,7 +83,7 @@ class PenjualController extends Controller
 
         $this->PenjualModel->UpdateData($id_penjual, $validatedData);
 
-        return redirect('/dashboard/penjual')->with('info', 'Penjual berhasil di ubah');
+        return redirect('/dashboard')->with('info', 'Penjual berhasil di ubah');
     }
 
     public function delete(PenjualModel $penjual, $id_penjual) 

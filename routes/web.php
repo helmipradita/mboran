@@ -7,6 +7,10 @@ use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\TempatController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
+use Spatie\Permission\Models\Role;
+
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +23,13 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', [WebController::class, 'index'])->name('index');
+Route::get('/', function () {
+    // $role = Role::find(3);
+    // $role->givePermissionTo('crud');
+    // dd($role);
+
+    return view('index');
+});
 
 Route::get('/penjual', [WebController::class, 'penjual'])->name('penjual');
 
@@ -46,15 +56,20 @@ Route::prefix('dashboard')->group(function () {
     Route::get('kecamatan/delete/{id_kecamatan}', [KecamatanController::class, 'delete'])->name('kecamatan.delete');
 
     //Penjual
-    Route::get('penjual', [PenjualController::class, 'index'])->name('penjual.index');
-    Route::post('penjual/create', [PenjualController::class, 'store'])->name('penjual.create');
-    Route::get('penjual/edit/{id_penjual}', [PenjualController::class, 'edit'])->name('penjual.edit');
-    Route::post('penjual/update/{id_penjual}', [PenjualController::class, 'update']);
-    Route::get('penjual/delete/{id_penjual}', [PenjualController::class, 'delete'])->name('penjual.delete');
+    
 
     //Dashboard
-    Route::middleware(['role:admin'])->group(function () {
-        
+    Route::middleware('role:admin')->group(function () {
+        Route::get('penjual', [PenjualController::class, 'index'])->name('penjual.index');
+        Route::post('penjual/create', [PenjualController::class, 'store'])->name('penjual.create');
+        Route::get('penjual/edit/{id_penjual}', [PenjualController::class, 'edit'])->name('penjual.edit');
+        Route::post('penjual/update/{id_penjual}', [PenjualController::class, 'update']);
+        Route::get('penjual/delete/{id_penjual}', [PenjualController::class, 'delete'])->name('penjual.delete');
+
+        Route::get('user', [UserController::class, 'create'])->name('user.create');
+        Route::post('user', [UserController::class, 'store']);
+        Route::get('{user}/user', [UserController::class, 'edit'])->name('user.edit');
+        Route::put('{user}/user', [UserController::class, 'update']);
     });
 });
 

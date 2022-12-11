@@ -26,7 +26,7 @@
                 @foreach($penjual as $index => $data)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $data->nama_penjual }}</td>
+                        <td>{{ $data->name }}</td>
                         <td>{{ $data->kecamatan }}</td>
                         <td>{{ $data->alamat }}</td>
                         <td>{{ $data->posisi }}</td>
@@ -85,7 +85,7 @@
         }).addTo( data{{ $kec->id_kecamatan }});
         map.fitBounds(kec.getBounds());
         @foreach($penjual as $data)
-            var informasi = '<table class="table table-bordered"><tr><td colspan="2"><img src="{{ asset('storage/'. $data->foto) }}" width="250px"></td></tr><tbody><tr><td>Nama penjual</td><td style="text-bold"><span style="font-weight:bold">{{ $data->nama_penjual }}</span></td></tr><tr><td>Kecamatan</td><td><span style="font-weight:bold">{{ $data->kecamatan }}</span></td></tr><tr><td colspan="2" class="text-center text-black"><a href="/detailpenjual/{{ $data->id_penjual }}" class="btn btn-outline-secondary btn-sm">Detail</td></tr></tbody></table>';
+            var informasi = '<table class="table table-bordered"><tr><td colspan="2"><img src="{{ asset('storage/'. $data->foto) }}" width="250px"></td></tr><tbody><tr><td>Nama penjual</td><td style="text-bold"><span style="font-weight:bold">{{ $data->name }}</span></td></tr><tr><td>Kecamatan</td><td><span style="font-weight:bold">{{ $data->kecamatan }}</span></td></tr><tr><td colspan="2" class="text-center text-black"><a href="/detailpenjual/{{ $data->id_penjual }}" class="btn btn-outline-secondary btn-sm">Detail</td></tr></tbody></table>';
         
             L.marker([{!! $data->posisi !!}])
             .addTo(map)

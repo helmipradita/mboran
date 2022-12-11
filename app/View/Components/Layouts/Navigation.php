@@ -3,6 +3,7 @@
 namespace App\View\Components\Layouts;
 
 use Illuminate\View\Component;
+use Spatie\Permission\Models\Role;
 
 class Navigation extends Component
 {
@@ -23,6 +24,8 @@ class Navigation extends Component
      */
     public function render()
     {
-        return view('components.layouts.navigation');
+
+        $roles = Role::get();
+        return view('components.layouts.navigation', compact('roles'));
     }
 }

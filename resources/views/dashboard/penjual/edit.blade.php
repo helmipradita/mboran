@@ -10,16 +10,18 @@
                 @csrf
                 @method('POST')
                 <div class="row">
-                    <div class="mb-3 col-md-4">
-                        <label class="form-label" for="nama_penjual">Nama penjual</label>
-                        <input type="text" name="nama_penjual" id="nama_penjual" class="form-control @error('nama_penjual') is-invalid @enderror" value="{{ old('nama_penjual', $penjual->nama_penjual) }}" required autofocus>
-                        @error('nama_penjual')
-                            <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
-                        @enderror
-                    </div>
+                    @role('admin')
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label" for="user_id">Nama penjual</label>
+                            <input type="text" name="user_id" id="user_id" class="form-control @error('user_id') is-invalid @enderror" value="{{ old('user_id', $penjual->name) }}" required autofocus>
+                            @error('user_id')
+                                <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
+                            @enderror
+                        </div>
+                    @endrole
                     <div class="mb-3 col-md-4">
                         <label for="id_kecamatan" class="form-label">Kecamatan</label>
-                        <select name="id_kecamatan" id="id_kecamatan" class="form-control" class="form-control @error('nama_penjual') is-invalid @enderror" required>
+                        <select name="id_kecamatan" id="id_kecamatan" class="form-control" class="form-control @error('name') is-invalid @enderror" required>
                             <option value="{{ old('id_kecamatan', $penjual->id_kecamatan) }}" >{{ $penjual->kecamatan }}</option>
                             @foreach ($kecamatan as $data)
                                 <option value="{{ $data->id_kecamatan }}">{{ $data->kecamatan }}</option>

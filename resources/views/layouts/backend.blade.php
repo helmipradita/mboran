@@ -49,6 +49,7 @@
                 Dashboard
               </a>
 
+              @role('admin')
               <a href="/dashboard/kecamatan" class="list-group-item list-group-item-action">
                 CRUD Kecamatan
               </a>
@@ -56,6 +57,11 @@
               <a href="/dashboard/penjual" class="list-group-item list-group-item-action">
                 CRUD Penjual
               </a>
+
+              <a href="/dashboard/user" class="list-group-item list-group-item-action">
+                Assign User
+              </a>
+              @endrole
 
             </div>
   

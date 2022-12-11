@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\WebModel;
+use App\Models\User;
 
 class WebController extends Controller
 {
@@ -19,7 +20,7 @@ class WebController extends Controller
             'penjual' => $this->WebModel->AllDataPenjual(),
         ];
 
-        return view('index', $data);
+        return view('index');
     }
 
     public function penjual()
@@ -53,6 +54,7 @@ class WebController extends Controller
         $data = [
             'kecamatan' => $this->WebModel->DataKecamatan(),
             'penjual' => $penjual,
+            'users' => $this->WebModel->DataUsers(),
         ];
 
         return view('detailpenjual', $data);
