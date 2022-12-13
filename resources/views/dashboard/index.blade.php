@@ -34,11 +34,11 @@
 
     @foreach($penjual as $index => $data)
       @if(!$penjual->isEmpty())
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+          {{-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
               <h1 class="h2">Edit Data Penjual</h1>
           </div>
           <td>{{ $index + 1 }}</td>
-          <td>{{ $data->name }}</td>
+          <td>{{ $data->nama_penjual }}</td>
           <td>{{ $data->kecamatan }}</td>
           <td>
               <a href="/detailpenjual/{{ $data->id_penjual }}" class="btn btn-info">View</a>
@@ -46,7 +46,7 @@
                 <a href="dashboard/penjual/edit/{{ $data->id_penjual }}" class="btn btn-primary">Edit</a>
               @endrole
               
-          </td>
+          </td> --}}
       @else
         <div>
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">

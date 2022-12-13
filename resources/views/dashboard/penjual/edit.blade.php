@@ -12,9 +12,9 @@
                 <div class="row">
                     @role('admin')
                         <div class="mb-3 col-md-4">
-                            <label class="form-label" for="user_id">Nama penjual</label>
-                            <input type="text" name="user_id" id="user_id" class="form-control @error('user_id') is-invalid @enderror" value="{{ old('user_id', $penjual->name) }}" required autofocus>
-                            @error('user_id')
+                            <label class="form-label" for="nama_penjual">Nama penjual</label>
+                            <input type="text" name="nama_penjual" id="nama_penjual" class="form-control @error('nama_penjual') is-invalid @enderror" value="{{ old('nama_penjual', $penjual->nama_penjual) }}" required autofocus>
+                            @error('nama_penjual')
                                 <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
                             @enderror
                         </div>

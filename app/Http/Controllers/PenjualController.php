@@ -32,7 +32,7 @@ class PenjualController extends Controller
     public function store(Request $request) 
     {
         $validatedData = $request->validate([
-            'user_id' => 'required',
+            'nama_penjual' => 'required',
             'id_kecamatan' => 'required',
             'ranting' => 'required',
             'alamat' => 'required',
@@ -64,6 +64,7 @@ class PenjualController extends Controller
     public function update(Request $request, $id_penjual)
     {
         $rules = [
+            'nama_penjual' => 'required',
             'id_kecamatan' => 'required',
             'ranting' => 'required',
             'alamat' => 'required',
@@ -83,7 +84,7 @@ class PenjualController extends Controller
 
         $this->PenjualModel->UpdateData($id_penjual, $validatedData);
 
-        return redirect('/dashboard')->with('info', 'Penjual berhasil di ubah');
+        return redirect('/dashboard/penjual')->with('info', 'Penjual berhasil di ubah');
     }
 
     public function delete(PenjualModel $penjual, $id_penjual) 

@@ -1,13 +1,8 @@
 <div class="row">
     <div class="mb-3 col-md-4">
-        <label class="form-label" for="user_id">Nama penjual</label>
-        <select name="user_id" id="user_id" class="form-control">
-            <option value="" >Pilih penjual</option>
-            @foreach ($users as $data)
-                <option value="{{ $data->id }}">{{ $data->name }}</option>
-            @endforeach
-        </select>
-        @error('user_id')
+        <label class="form-label" for="nama_penjual">Nama penjual</label>
+        <input type="text" name="nama_penjual" id="nama_penjual" class="form-control" required>
+        @error('nama_penjual')
             <div class="text-danger mt-2 d-block">{{ $message }}</div>                        
         @enderror
     </div>

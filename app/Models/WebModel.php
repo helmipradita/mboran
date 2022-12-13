@@ -31,7 +31,6 @@ class WebModel extends Model
     {
         return DB::table('penjual')
             ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'penjual.id_kecamatan')
-            ->join('users', 'users.id', '=', 'penjual.user_id')
             ->where('penjual.id_kecamatan', $id_kecamatan)
             ->get();
     }
@@ -40,7 +39,6 @@ class WebModel extends Model
     {
         return DB::table('penjual')
             ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'penjual.id_kecamatan')
-            ->join('users', 'users.id', '=', 'penjual.user_id')
             ->get();
     }
 
@@ -48,7 +46,6 @@ class WebModel extends Model
     {
         return DB::table('penjual')
             ->join('kecamatan', 'kecamatan.id_kecamatan', '=', 'penjual.id_kecamatan')
-            ->join('users', 'users.id', '=', 'penjual.user_id')
             ->where('penjual.id_penjual', $id_penjual)
             ->first();
     }

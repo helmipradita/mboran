@@ -42,7 +42,7 @@
                 @foreach($penjual as $index => $data)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $data->name }}</td>
+                        <td>{{ $data->nama_penjual }}</td>
                         <td>{{ $data->kecamatan }}</td>
                         <td>
                             <a href="/detailpenjual/{{ $data->id_penjual }}" class="btn btn-info">View</a>

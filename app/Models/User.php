@@ -47,7 +47,6 @@ class User extends Authenticatable
     public function AllData()
     {
         return DB::table('users')->orderBy('id', 'DESC')
-            ->leftJoin('penjual', 'penjual.user_id', '=', 'users.id')->whereNull('penjual.user_id')
             ->get();
     }
 }
